@@ -15,6 +15,8 @@ import plotly.graph_objects as PlotlyGraphObjects
 
 LYFT_TRAIN_DATASET_LOC = os.path.join(os.path.expanduser('~'), 'LyftObjDetDataset', 'train')
 
+SHOW_PLOTLY_MOUSEOVERS = False
+
 def main():
     # suppress numpy printing in scientific notation
     np.set_printoptions(suppress=True)
@@ -99,6 +101,14 @@ def main():
     # make and show a plotly Figure object
     plotlyFig = PlotlyGraphObjects.Figure(data=[s3dPoints, s3dGndTrBoxLines])
     plotlyFig.update_layout(scene_aspectmode='data')
+
+    if not SHOW_PLOTLY_MOUSEOVERS:
+        plotlyFig.update_layout(hovermode=False)
+        plotlyFig.update_layout(scene=dict(xaxis_showspikes=False,
+                                           yaxis_showspikes=False,
+                                           zaxis_showspikes=False))
+    # end if
+
     plotlyFig.show()
 
 # end function

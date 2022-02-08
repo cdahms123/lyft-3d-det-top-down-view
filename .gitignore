@@ -1,0 +1,16 @@
+# .gitignore
+
+*.png
+
+# most directories
+csv
+graphs
+__pycache__
+tdv_train_images
+tdv_val_images
+vis_train
+.idea
+
+
+
+

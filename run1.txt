@@ -1,0 +1,47 @@
+cdahms@Aurora-R7:~/workspace-apps/LyftObjDet4$ python3 1_train.py 
+
+loading training data . . . 
+
+9 category,
+18 attribute,
+4 visibility,
+18421 instance,
+10 sensor,
+148 calibrated_sensor,
+177789 ego_pose,
+180 log,
+180 scene,
+22680 sample,
+189504 sample_data,
+638179 sample_annotation,
+1 map,
+Done loading in 5.9 seconds.
+======
+Reverse indexing ...
+Done reverse indexing in 1.7 seconds.
+======
+
+type(level5data.scene) = <class 'list'>
+len(level5data.scene) = 180
+
+type(level5data.scene[0]) = <class 'dict'>
+level5data.scene[0]: 
+{'description': '',
+ 'first_sample_token': '24b0962e44420e6322de3f25d9e4e5cc3c7a348ec00bfa69db21517e4ca92cc8',
+ 'last_sample_token': '2346756c83f6ae8c4d1adec62b4d0d31b62116d2e1819e96e9512667d15e7cec',
+ 'log_token': 'da4ed9e02f64c544f4f1f10c6738216dcb0e6b0d50952e158e5589854af9f100',
+ 'name': 'host-a101-lidar0-1241893239199111666-1241893264098084346',
+ 'nbr_samples': 126,
+ 'token': 'da4ed9e02f64c544f4f1f10c6738216dcb0e6b0d50952e158e5589854af9f100'}
+
+
+making training TDV images . . . 
+
+100%|███████████████████████████████████████████████████| 17640/17640 [1:11:48<00:00,  4.09it/s]
+
+making validation TDV images . . . 
+
+100%|███████████████████████████████████████████████████████| 5040/5040 [18:32<00:00,  4.53it/s]
+
+
+

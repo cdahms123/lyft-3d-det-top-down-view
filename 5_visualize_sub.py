@@ -1,4 +1,4 @@
-# visualize_sub.py
+# 5_visualize_sub.py
 
 import Utils
 
@@ -14,7 +14,7 @@ import copy
 import plotly.graph_objects as PlotlyGraphObjects
 from typing import List
 
-LYFT_TEST_DATASET_LOC = os.path.join(os.path.expanduser('~'), 'lyft-obj-det-dataset', 'test')
+LYFT_TEST_DATASET_LOC = os.path.join(os.path.expanduser('~'), 'LyftObjDetDataset', 'test')
 CSV_LOC = os.path.join(os.getcwd(), 'csv')
 
 def main():

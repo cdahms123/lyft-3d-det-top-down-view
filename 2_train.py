@@ -1,4 +1,4 @@
-# 1_train.py
+# 2_train.py
 
 from TdvImageDataset import TdvImageDataset
 from UNet import UNet
@@ -24,7 +24,7 @@ from termcolor import colored
 import pprint
 
 VIS_TRAIN_DIR = os.path.join(os.getcwd(), 'vis_train')
-LYFT_TRAIN_DATASET_LOC = os.path.join(os.path.expanduser('~'), 'lyft-obj-det-dataset', 'train')
+LYFT_TRAIN_DATASET_LOC = os.path.join(os.path.expanduser('~'), 'LyftObjDetDataset', 'train')
 
 # TDV = Top Down View
 TDV_TRAIN_IMAGES_LOC = os.path.join(os.getcwd(), 'tdv_train_images')

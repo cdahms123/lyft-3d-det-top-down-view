@@ -1,4 +1,4 @@
-# 0_visualize_dataset.py
+# 1_visualize_dataset.py
 
 import Utils
 
@@ -13,7 +13,7 @@ import copy
 from typing import List
 import plotly.graph_objects as PlotlyGraphObjects
 
-LYFT_TRAIN_DATASET_LOC = os.path.join(os.path.expanduser('~'), 'lyft-obj-det-dataset', 'train')
+LYFT_TRAIN_DATASET_LOC = os.path.join(os.path.expanduser('~'), 'LyftObjDetDataset', 'train')
 
 def main():
     # suppress numpy printing in scientific notation

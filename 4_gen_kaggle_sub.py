@@ -26,7 +26,7 @@ from termcolor import colored
 import pprint
 
 VIS_TEST_DIR = 'vis_test'
-LYFT_TEST_DATASET_LOC = os.path.join(os.path.expanduser('~'), 'lyft-obj-det-dataset', 'test')
+LYFT_TEST_DATASET_LOC = os.path.join(os.path.expanduser('~'), 'LyftObjDetDataset', 'test')
 
 # TDV = Top Down View
 TDV_TEST_IMAGES_LOC = 'tdv_test_images'
@@ -35,7 +35,7 @@ GRAPHS_LOC = 'graphs'
 
 CSV_LOC = os.path.join(os.getcwd(), 'csv')
 
-SAMPLE_SUB_FILE_LOC = os.path.join(os.path.expanduser('~'), 'lyft-obj-det-dataset', 'sample_submission.csv')
+SAMPLE_SUB_FILE_LOC = os.path.join(os.path.expanduser('~'), 'LyftObjDetDataset', 'sample_submission.csv')
 KAGGLE_SUB_FILE_NAME = 'kaggle_sub.csv'
 TEST_BATCH_SIZE = 8
 

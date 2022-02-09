@@ -1,4 +1,4 @@
-cdahms@Aurora-R7:~/workspace-apps/LyftObjDet4$ python3 1_train.py 
+cdahms@aurora-R12:~/workspace-av/lyft-3d-det-top-down-view$ python3 2_train.py 
 
 loading training data . . . 
 
@@ -15,10 +15,10 @@ loading training data . . .
 189504 sample_data,
 638179 sample_annotation,
 1 map,
-Done loading in 5.9 seconds.
+Done loading in 4.3 seconds.
 ======
 Reverse indexing ...
-Done reverse indexing in 1.7 seconds.
+Done reverse indexing in 1.3 seconds.
 ======
 
 type(level5data.scene) = <class 'list'>
@@ -37,11 +37,90 @@ level5data.scene[0]:
 
 making training TDV images . . . 
 
-100%|███████████████████████████████████████████████████| 17640/17640 [1:11:48<00:00,  4.09it/s]
+100%|█████████████████████████████████████████████████████████████████████████████████████████| 17640/17640 [1:11:12<00:00,  4.13it/s]
 
 making validation TDV images . . . 
 
-100%|███████████████████████████████████████████████████████| 5040/5040 [18:32<00:00,  4.53it/s]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████| 5040/5040 [18:03<00:00,  4.65it/s]
+len(trainFrameFileLocs) = 17639
+len(trainMaskFileLocs) = 17639
+len(trainDataset) = 17639
+len(trainDataLoader) = 4410
+len(valFrameFileLocs) = 5040
+len(valMaskFileLocs) = 5040
 
+len(valDataset) = 5040
+
+len(valDataLoader) = 630
+using GPU
+
+beginning training . . . 
+
+epoch 1
+100%|█████████████████████████████████████████████████████████████████████████████████████████████| 4410/4410 [14:19<00:00,  5.13it/s]
+loss: 0.017325781
+100%|███████████████████████████████████████████████████████████████████████████████████████████████| 630/630 [01:30<00:00,  6.94it/s]
+
+mean of validation losses: 0.012463855
+epoch 2
+100%|█████████████████████████████████████████████████████████████████████████████████████████████| 4410/4410 [14:13<00:00,  5.17it/s]
+loss: 0.010541784
+100%|███████████████████████████████████████████████████████████████████████████████████████████████| 630/630 [01:26<00:00,  7.32it/s]
+
+mean of validation losses: 0.011040384
+epoch 3
+100%|█████████████████████████████████████████████████████████████████████████████████████████████| 4410/4410 [13:41<00:00,  5.37it/s]
+loss: 0.0091203
+100%|███████████████████████████████████████████████████████████████████████████████████████████████| 630/630 [01:25<00:00,  7.34it/s]
+
+mean of validation losses: 0.011306589
+epoch 4
+100%|█████████████████████████████████████████████████████████████████████████████████████████████| 4410/4410 [13:41<00:00,  5.37it/s]
+loss: 0.008356218
+100%|███████████████████████████████████████████████████████████████████████████████████████████████| 630/630 [01:25<00:00,  7.35it/s]
+
+mean of validation losses: 0.01084493
+epoch 5
+100%|█████████████████████████████████████████████████████████████████████████████████████████████| 4410/4410 [13:42<00:00,  5.36it/s]
+loss: 0.007824874
+100%|███████████████████████████████████████████████████████████████████████████████████████████████| 630/630 [01:25<00:00,  7.34it/s]
+
+mean of validation losses: 0.010399749
+
+making framesOfDetections2d list . . . 
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████| 630/630 [01:33<00:00,  6.75it/s]
+
+computing prediction boxes . . . 
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████| 5040/5040 [00:24<00:00, 209.15it/s]
+
+len(valGndTrBox3Ds) = 143414
+
+len(valPredFrameIds) = 5040
+len(valGndTrFrameIds) = 5040
+
+validation prediction frame IDs verified to be the same as the validation ground truth frame IDs
+
+calculating mAP . . .
+
+Class_names =  ['animal', 'bicycle', 'bus', 'car', 'motorcycle', 'other_vehicle', 'pedestrian', 'truck']
+
+Average per class mean average precision = 0.05378847881607516
+('animal', 0.0)
+('bicycle', 0.0)
+('bus', 0.0)
+('car', 0.4303078305286013)
+('motorcycle', 0.0)
+('other_vehicle', 0.0)
+('pedestrian', 0.0)
+('truck', 0.0)
+
+writing results to /home/cdahms/workspace-av/lyft-3d-det-top-down-view/csv . . . 
+
+
+entire process took: 2.0 hours, 50.0 mins, 18.90 secs
+
+done !!
 
 

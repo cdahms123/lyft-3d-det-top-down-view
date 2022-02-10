@@ -1,4 +1,165 @@
+cdahms@aurora-R12:~/workspace-av/lyft-3d-det-top-down-view$ python3 1_visualize_dataset.py 
+
+loading training data . . . 
+
+9 category,
+18 attribute,
+4 visibility,
+18421 instance,
+10 sensor,
+148 calibrated_sensor,
+177789 ego_pose,
+180 log,
+180 scene,
+22680 sample,
+189504 sample_data,
+638179 sample_annotation,
+1 map,
+Done loading in 4.2 seconds.
+======
+Reverse indexing ...
+Done reverse indexing in 1.3 seconds.
+======
 cdahms@aurora-R12:~/workspace-av/lyft-3d-det-top-down-view$ python3 2_train.py 
+
+loading training data . . . 
+
+9 category,
+18 attribute,
+4 visibility,
+18421 instance,
+10 sensor,
+148 calibrated_sensor,
+177789 ego_pose,
+180 log,
+180 scene,
+22680 sample,
+189504 sample_data,
+638179 sample_annotation,
+1 map,
+Done loading in 5.1 seconds.
+======
+Reverse indexing ...
+Done reverse indexing in 2.3 seconds.
+======
+
+type(level5data.scene) = <class 'list'>
+len(level5data.scene) = 180
+
+type(level5data.scene[0]) = <class 'dict'>
+level5data.scene[0]: 
+{'description': '',
+ 'first_sample_token': '24b0962e44420e6322de3f25d9e4e5cc3c7a348ec00bfa69db21517e4ca92cc8',
+ 'last_sample_token': '2346756c83f6ae8c4d1adec62b4d0d31b62116d2e1819e96e9512667d15e7cec',
+ 'log_token': 'da4ed9e02f64c544f4f1f10c6738216dcb0e6b0d50952e158e5589854af9f100',
+ 'name': 'host-a101-lidar0-1241893239199111666-1241893264098084346',
+ 'nbr_samples': 126,
+ 'token': 'da4ed9e02f64c544f4f1f10c6738216dcb0e6b0d50952e158e5589854af9f100'}
+
+
+making training TDV images . . . 
+
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 17640/17640 [1:08:11<00:00,  4.31it/s]
+
+making validation TDV images . . . 
+
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5040/5040 [17:05<00:00,  4.92it/s]
+len(trainFrameFileLocs) = 17639
+len(trainMaskFileLocs) = 17639
+len(trainDataset) = 17639
+len(trainDataLoader) = 4410
+len(valFrameFileLocs) = 5040
+len(valMaskFileLocs) = 5040
+
+len(valDataset) = 5040
+
+len(valDataLoader) = 630
+using GPU
+
+beginning training . . . 
+
+epoch 1
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4410/4410 [13:55<00:00,  5.28it/s]
+loss: 0.017137794
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 630/630 [01:30<00:00,  6.96it/s]
+
+mean of validation losses: 0.012655755
+epoch 2
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4410/4410 [13:42<00:00,  5.36it/s]
+loss: 0.010671767
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 630/630 [01:25<00:00,  7.40it/s]
+
+mean of validation losses: 0.011501878
+epoch 3
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4410/4410 [13:35<00:00,  5.41it/s]
+loss: 0.009216538
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 630/630 [01:25<00:00,  7.40it/s]
+
+mean of validation losses: 0.010901793
+epoch 4
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4410/4410 [13:35<00:00,  5.41it/s]
+loss: 0.0084263235
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 630/630 [01:25<00:00,  7.39it/s]
+
+mean of validation losses: 0.010530789
+epoch 5
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4410/4410 [13:37<00:00,  5.39it/s]
+loss: 0.007900565
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 630/630 [01:25<00:00,  7.40it/s]
+
+mean of validation losses: 0.010675502
+
+making framesOfDetections2d list . . . 
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 630/630 [01:32<00:00,  6.82it/s]
+
+computing prediction boxes . . . 
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5040/5040 [00:23<00:00, 212.47it/s]
+
+len(valGndTrBox3Ds) = 143414
+
+len(valPredFrameIds) = 5040
+len(valGndTrFrameIds) = 5040
+
+validation prediction frame IDs verified to be the same as the validation ground truth frame IDs
+
+calculating mAP . . .
+
+Class_names =  ['animal', 'bicycle', 'bus', 'car', 'motorcycle', 'other_vehicle', 'pedestrian', 'truck']
+
+Average per class mean average precision = 0.053703759726084994
+('animal', 0.0)
+('bicycle', 0.0)
+('bus', 0.0)
+('car', 0.42963007780867996)
+('motorcycle', 0.0)
+('other_vehicle', 0.0)
+('pedestrian', 0.0)
+('truck', 0.0)
+
+writing results to /home/cdahms/workspace-av/lyft-3d-det-top-down-view/csv . . . 
+
+
+entire process took: 2.0 hours, 45.0 mins, 2.24 secs
+
+done !!
+
+cdahms@aurora-R12:~/workspace-av/lyft-3d-det-top-down-view$ python3 3_visualize_val.py 
+                                                     Id                                   PredictionString
+0     00336df4f44fa605a6ef6a08e8b312564d13f385228abe...  0.5137254901960784 2642.3327395029337 791.0603...
+1     0038983c0286d56f701137dca5f2599a0e3e157831e14d...  0.996078431372549 1698.2005569003502 1277.2585...
+2     0043a4d1ceb9ccae6930e5b6cc1aad119abb61d41c9e84...  0.615686274509804 2203.3533950811598 932.16448...
+3     00523324f826a72591c5cd0d4a3b5e216385d8c1e99bf2...  1.0 1050.3078114428847 1847.6651473277457 -24....
+4     0058f53162ebcb1a3e5c43d949dfc6843efe7b28620973...  0.9803921568627451 1267.8374361920824 1524.630...
+...                                                 ...                                                ...
+5035  ffcf0c1b177f024dac8bf32050267022212116a836d300...  0.6862745098039216 1490.9339039505353 1449.933...
+5036  ffd07fd645047e959147bc3a4f1abb5bff041276e50f77...  0.6784313725490196 2710.860048557345 713.25621...
+5037  ffe44bc510da347b80f67fb2b7a79a95c2e16b26cf1e38...  0.6784313725490196 1372.1951542533552 1522.189...
+5038  fff07bea08ec6f72e156facb62f9d6c5e17634fd3bdffe...  0.5725490196078431 2524.4234122117477 724.9717...
+5039  fff78a9030519548dcbf17aacb55649606618beb7f7c14...  0.5529411764705883 1106.5569147472402 1625.427...
+
+[5040 rows x 2 columns]
 
 loading training data . . . 
 
@@ -21,106 +182,111 @@ Reverse indexing ...
 Done reverse indexing in 1.3 seconds.
 ======
 
+building boxes lists . . . 
+
+press [Enter] to show next frame, or Ctrl + \ to end program
+
+
+^\Quit (core dumped)
+cdahms@aurora-R12:~/workspace-av/lyft-3d-det-top-down-view$ python3 4_gen_kaggle_sub.py 
+
+loading test data . . . 
+
+9 category,
+17 attribute,
+4 visibility,
+0 instance,
+8 sensor,
+168 calibrated_sensor,
+219744 ego_pose,
+218 log,
+218 scene,
+27468 sample,
+219744 sample_data,
+0 sample_annotation,
+1 map,
+Done loading in 1.2 seconds.
+======
+Reverse indexing ...
+Done reverse indexing in 0.4 seconds.
+======
+
 type(level5data.scene) = <class 'list'>
-len(level5data.scene) = 180
+len(level5data.scene) = 218
 
 type(level5data.scene[0]) = <class 'dict'>
 level5data.scene[0]: 
 {'description': '',
- 'first_sample_token': '24b0962e44420e6322de3f25d9e4e5cc3c7a348ec00bfa69db21517e4ca92cc8',
- 'last_sample_token': '2346756c83f6ae8c4d1adec62b4d0d31b62116d2e1819e96e9512667d15e7cec',
- 'log_token': 'da4ed9e02f64c544f4f1f10c6738216dcb0e6b0d50952e158e5589854af9f100',
- 'name': 'host-a101-lidar0-1241893239199111666-1241893264098084346',
+ 'first_sample_token': 'f2cdcd4da1f66aba83db988bf453912583dabd4e6b6a379994a8edc490e39655',
+ 'last_sample_token': 'f642637c9f642626e9608a7aaf6348e63c2dab7e76be90da219b227b449dc9de',
+ 'log_token': '38844b35b1641a0d193f96efdcb8a39aa6fa023f2335a37415fb59699c32d548',
+ 'name': 'host-a004-lidar0-1233944976297786786-1233945001198600096',
  'nbr_samples': 126,
- 'token': 'da4ed9e02f64c544f4f1f10c6738216dcb0e6b0d50952e158e5589854af9f100'}
+ 'token': '38844b35b1641a0d193f96efdcb8a39aa6fa023f2335a37415fb59699c32d548'}
 
 
-making training TDV images . . . 
+making test TDV images . . . 
 
-100%|█████████████████████████████████████████████████████████████████████████████████████████| 17640/17640 [1:11:12<00:00,  4.13it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 27468/27468 [1:34:48<00:00,  4.83it/s]
+len(testFrameFileLocs) = 27468
+len(testMaskFileLocs) = 27468
 
-making validation TDV images . . . 
-
-100%|█████████████████████████████████████████████████████████████████████████████████████████████| 5040/5040 [18:03<00:00,  4.65it/s]
-len(trainFrameFileLocs) = 17639
-len(trainMaskFileLocs) = 17639
-len(trainDataset) = 17639
-len(trainDataLoader) = 4410
-len(valFrameFileLocs) = 5040
-len(valMaskFileLocs) = 5040
-
-len(valDataset) = 5040
-
-len(valDataLoader) = 630
+len(testDataset) = 27468
+len(testDataLoader) = 3434
 using GPU
 
-beginning training . . . 
+beginning testing . . . 
 
-epoch 1
-100%|█████████████████████████████████████████████████████████████████████████████████████████████| 4410/4410 [14:19<00:00,  5.13it/s]
-loss: 0.017325781
-100%|███████████████████████████████████████████████████████████████████████████████████████████████| 630/630 [01:30<00:00,  6.94it/s]
-
-mean of validation losses: 0.012463855
-epoch 2
-100%|█████████████████████████████████████████████████████████████████████████████████████████████| 4410/4410 [14:13<00:00,  5.17it/s]
-loss: 0.010541784
-100%|███████████████████████████████████████████████████████████████████████████████████████████████| 630/630 [01:26<00:00,  7.32it/s]
-
-mean of validation losses: 0.011040384
-epoch 3
-100%|█████████████████████████████████████████████████████████████████████████████████████████████| 4410/4410 [13:41<00:00,  5.37it/s]
-loss: 0.0091203
-100%|███████████████████████████████████████████████████████████████████████████████████████████████| 630/630 [01:25<00:00,  7.34it/s]
-
-mean of validation losses: 0.011306589
-epoch 4
-100%|█████████████████████████████████████████████████████████████████████████████████████████████| 4410/4410 [13:41<00:00,  5.37it/s]
-loss: 0.008356218
-100%|███████████████████████████████████████████████████████████████████████████████████████████████| 630/630 [01:25<00:00,  7.35it/s]
-
-mean of validation losses: 0.01084493
-epoch 5
-100%|█████████████████████████████████████████████████████████████████████████████████████████████| 4410/4410 [13:42<00:00,  5.36it/s]
-loss: 0.007824874
-100%|███████████████████████████████████████████████████████████████████████████████████████████████| 630/630 [01:25<00:00,  7.34it/s]
-
-mean of validation losses: 0.010399749
-
-making framesOfDetections2d list . . . 
-
-100%|███████████████████████████████████████████████████████████████████████████████████████████████| 630/630 [01:33<00:00,  6.75it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3434/3434 [08:31<00:00,  6.71it/s]
 
 computing prediction boxes . . . 
 
-100%|████████████████████████████████████████████████████████████████████████████████████████████| 5040/5040 [00:24<00:00, 209.15it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████| 27468/27468 [02:22<00:00, 193.21it/s]
 
-len(valGndTrBox3Ds) = 143414
-
-len(valPredFrameIds) = 5040
-len(valGndTrFrameIds) = 5040
-
-validation prediction frame IDs verified to be the same as the validation ground truth frame IDs
-
-calculating mAP . . .
-
-Class_names =  ['animal', 'bicycle', 'bus', 'car', 'motorcycle', 'other_vehicle', 'pedestrian', 'truck']
-
-Average per class mean average precision = 0.05378847881607516
-('animal', 0.0)
-('bicycle', 0.0)
-('bus', 0.0)
-('car', 0.4303078305286013)
-('motorcycle', 0.0)
-('other_vehicle', 0.0)
-('pedestrian', 0.0)
-('truck', 0.0)
-
-writing results to /home/cdahms/workspace-av/lyft-3d-det-top-down-view/csv . . . 
+making submission file . . . 
 
 
-entire process took: 2.0 hours, 50.0 mins, 18.90 secs
+entire process took: 1.0 hours, 45.0 mins, 48.23 secs
 
-done !!
+done !! 
+
+cdahms@aurora-R12:~/workspace-av/lyft-3d-det-top-down-view$ python3 5_visualize_sub.py 
+                                                      Id                                   PredictionString
+0      7eb3e546df5311b035f1d4b7e88351ffdd85f311ef1bdd...  0.6941176470588235 1522.346499110183 1420.4393...
+1      a76d702996a086ecd4add92b6c533b76f0ab1dd35a4729...  0.6196078431372549 1439.7107429266193 1416.520...
+2      a9919963e5cd83d12b60bb9c386869ecb4dffcf2e3c401...  1.0 609.0953207040122 3412.55835954167 -3.6096...
+3      e3f42dc16cb366723699a5e12098edb56907d676cb5720...  0.8313725490196079 1076.2113448730186 1714.721...
+4      033edef20c7f951738c037c0275dc02279a15454fda3e6...  0.6705882352941176 2740.796353821983 677.45892...
+...                                                  ...                                                ...
+27463  53f4dfacb709a170445e4ad7b5a0688728c77ff3cd0fe5...  0.8862745098039215 855.8302510540382 2598.9197...
+27464  854794e664c180c96527feba0fa8dab4ae491c5b784fc6...  0.996078431372549 1672.5824373452833 1309.1396...
+27465  83ed8e28c6ababc1607e7c04262221e3fa9d41846185a3...  0.9058823529411765 2274.597845699288 988.48748...
+27466  f18acdfc03c6f092864487063b31c1914d631d992295ef...  0.7019607843137254 516.7247212091135 3153.7838...
+27467  aab521819add7f1a683de63702a8891e6f9e9c35eec497...  1.0 1611.111409903691 1366.8269044179501 -20.3...
+
+[27468 rows x 2 columns]
+
+loading test data . . . 
+
+9 category,
+17 attribute,
+4 visibility,
+0 instance,
+8 sensor,
+168 calibrated_sensor,
+219744 ego_pose,
+218 log,
+218 scene,
+27468 sample,
+219744 sample_data,
+0 sample_annotation,
+1 map,
+Done loading in 1.3 seconds.
+======
+Reverse indexing ...
+Done reverse indexing in 0.5 seconds.
+======
+
+building boxes lists . . . 
 
 

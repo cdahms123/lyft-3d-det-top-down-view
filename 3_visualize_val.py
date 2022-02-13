@@ -129,7 +129,7 @@ def main():
 
         # end for
 
-        s3dPredBoxLines = PlotlyGraphObjects.Scatter3d(x=predXLines, y=predYLines, z=predZLines, mode='lines')
+        s3dPredBoxLines = PlotlyGraphObjects.Scatter3d(x=predXLines, y=predYLines, z=predZLines, mode='lines', name='preds')
 
         # 3 separate lists for the x, y, and z components of each line
         gndTrXLines = []
@@ -166,7 +166,7 @@ def main():
 
         # end for
 
-        s3dGndTrBoxLines = PlotlyGraphObjects.Scatter3d(x=gndTrXLines, y=gndTrYLines, z=gndTrZLines, mode='lines')
+        s3dGndTrBoxLines = PlotlyGraphObjects.Scatter3d(x=gndTrXLines, y=gndTrYLines, z=gndTrZLines, mode='lines', name='gnd trs')
 
         # make and show a plotly Figure object
         plotlyFig = PlotlyGraphObjects.Figure(data=[s3dPoints, s3dPredBoxLines, s3dGndTrBoxLines])
